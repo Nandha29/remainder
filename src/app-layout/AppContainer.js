@@ -1,10 +1,10 @@
 import React from "react";
-import AppLayout from "./AppLayout";
+import Pages from "../pages/Pages";
 
 const AppContainer = () => {
   return (
     <div>
-      <AppLayout />
+      <Pages />
     </div>
   );
 };
