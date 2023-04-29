@@ -6,7 +6,7 @@ const { Title } = Typography;
 
 const Profile = () => {
   return (
-    <Row gutter={[16, 16]} justify="center">
+    <Row gutter={[16, 16]}>
       <Col xs={24} md={8} lg={4}>
         <Avatar size={50} icon={<UserOutlined />} />
       </Col>

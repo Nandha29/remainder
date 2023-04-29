@@ -20,7 +20,7 @@ const Pages = () => {
         style={{
           height: "100%",
           display: "grid",
-          gridTemplateColumns: "1.7fr 5fr",
+          gridTemplateColumns: "1.5fr 5fr",
           border: "1px solid #E9E9E9",
         }}
       >
