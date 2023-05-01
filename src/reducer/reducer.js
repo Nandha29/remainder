@@ -44,6 +44,12 @@ export const reducerFunction = (state, action) => {
       setLocalStorage(updatedStateAfterDelete);
       return updatedStateAfterDelete;
 
+    case "SEARCH_CATEGORY":
+      return {
+        ...state,
+        searchCategory: action.payload.searchCategory,
+      };
+
     default:
       return state;
   }

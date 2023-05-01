@@ -30,6 +30,15 @@ const Categories = () => {
   const [categoryValue, setCategoryValue] = useState("");
   const [mouseHoveredCategory, setMouseHoveredCategory] = useState(null);
 
+  let searchCategory = state.searchCategory.toLowerCase();
+  let categories = state.categories;
+
+  if (searchCategory !== "") {
+    categories = categories.filter((category) => {
+      return category.name.toLowerCase().includes(searchCategory.toLowerCase());
+    });
+  }
+
   const handleAddCategory = () => {
     dispatch({
       type: "ADD_CATEGORY",
@@ -72,8 +81,20 @@ const Categories = () => {
       >
         <Input
           prefix={<SearchOutlined />}
+          style={{
+            marginBottom: 10,
+          }}
           placeholder="Search category"
           allowClear={{ clearIcon: <CloseOutlined /> }}
+          onChange={(e) => {
+            let searchText = e.target.value;
+            dispatch({
+              type: "SEARCH_CATEGORY",
+              payload: {
+                searchCategory: searchText,
+              },
+            });
+          }}
         />
       </Col>
 
@@ -83,7 +104,7 @@ const Categories = () => {
         style={{ height: "66vh", overflowX: "hidden", overflowY: "auto" }}
       >
         <Row gutter={[0, 13]}>
-          {state.categories.map((category, index) => {
+          {categories.map((category, index) => {
             return (
               <Col
                 span={24}
@@ -142,15 +163,22 @@ const Categories = () => {
         {state.showCategoryInput && (
           <Input
             autoFocus
-            style={{ width: "100%" }}
+            style={{
+              marginTop: 10,
+            }}
             placeholder="Enter category name"
-            allowClear={{ clearIcon: <CloseOutlined /> }}
             onChange={(e) => setCategoryValue(e.target.value)}
             suffix={
-              <CheckOutlined
-                style={{ color: "green" }}
-                onClick={() => handleAddCategory()}
-              />
+              <>
+                {categoryValue !== "" ? (
+                  <CheckOutlined
+                    style={{ color: "green" }}
+                    onClick={() => handleAddCategory()}
+                  />
+                ) : (
+                  <CheckOutlined style={{ color: "gray" }} />
+                )}
+              </>
             }
             onPressEnter={() => handleAddCategory()}
           />

@@ -7,4 +7,5 @@ export const initialState = {
   categories: applicationData?.categories ?? [],
   tasks: applicationData?.tasks ?? [],
   showCategoryInput: false,
+  searchCategory: "",
 };
