@@ -2,8 +2,6 @@ import React from "react";
 import Categories from "./categories/Categories";
 import Tasks from "./tasks/Tasks";
 import { Layout } from "antd";
-import AppHeader from "./app-header/AppHeader";
-import { ACTION_TYPES } from "../reducer/reducerActionTypes";
 
 const { Content } = Layout;
 
