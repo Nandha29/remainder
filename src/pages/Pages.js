@@ -42,11 +42,6 @@ const Pages = () => {
         >
           <Tasks />
         </Content>
-        {/* This is the info panel
-         */}
-        {/* <Content>
-          <InfoPanel />
-        </Content> */}
       </Layout>
     </Layout>
   );

@@ -1,4 +1,5 @@
 import { setLocalStorage } from "../utils/setLocalStorage";
+import { ACTION_TYPES } from "../reducer/reducerActionTypes";
 
 export const reducerFunction = (state, action) => {
   switch (action.type) {
@@ -48,6 +49,28 @@ export const reducerFunction = (state, action) => {
       return {
         ...state,
         searchCategory: action.payload.searchCategory,
+      };
+
+    case "ADD_TASK":
+      const newTask = action.payload.task;
+      const updatedTasks = [newTask, ...state.tasks];
+      const updatedStateAfterAddTask = {
+        ...state,
+        tasks: updatedTasks,
+      };
+      setLocalStorage(updatedStateAfterAddTask);
+      return updatedStateAfterAddTask;
+
+    case ACTION_TYPES.OPEN_INFO_PANEL:
+      return {
+        ...state,
+        infoPanelVisibility: true,
+      };
+
+    case ACTION_TYPES.CLOSE_INFO_PANEL:
+      return {
+        ...state,
+        infoPanelVisibility: false,
       };
 
     default:
