@@ -1,11 +1,11 @@
 import React from "react";
 import Categories from "./categories/Categories";
 import Tasks from "./tasks/Tasks";
-import InfoPanel from "./info-panel/InfoPanel";
 import { Layout } from "antd";
 import AppHeader from "./app-header/AppHeader";
+import { ACTION_TYPES } from "../reducer/reducerActionTypes";
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Content } = Layout;
 
 const Pages = () => {
   return (
