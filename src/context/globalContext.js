@@ -8,4 +8,6 @@ export const initialState = {
   tasks: applicationData?.tasks ?? [],
   showCategoryInput: false,
   searchCategory: "",
+  infoPanelVisibility: false,
+  reminderDuration: 0,
 };

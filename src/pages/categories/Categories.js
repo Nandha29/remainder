@@ -8,6 +8,7 @@ import {
   Divider,
   Modal,
   Empty,
+  List,
 } from "antd";
 import Profile from "./Profile";
 import {
@@ -57,7 +58,7 @@ const Categories = () => {
     });
     setCategoryValue("");
   };
-  console.log(state);
+
   return (
     <Row
       gutter={[16, 16]}
@@ -99,6 +100,7 @@ const Categories = () => {
       </Col>
 
       {/* This is categories */}
+
       <Col
         span={24}
         style={{ height: "66vh", overflowX: "hidden", overflowY: "auto" }}
@@ -186,7 +188,7 @@ const Categories = () => {
       </Col>
 
       {/* This is show category */}
-      <Col span={24} style={{ bottom: 5 }}>
+      <Col span={24}>
         <Divider />
         <Button
           icon={<PlusOutlined />}
