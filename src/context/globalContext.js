@@ -9,4 +9,5 @@ export const initialState = {
   showCategoryInput: false,
   searchCategory: "",
   infoPanelVisibility: false,
+  reminderDuration: 0,
 };

@@ -73,6 +73,12 @@ export const reducerFunction = (state, action) => {
         infoPanelVisibility: false,
       };
 
+    case ACTION_TYPES.SET_REMAINDER_DURATION:
+      return {
+        ...state,
+        reminderDuration: action.payload.reminderDuration,
+      };
+
     default:
       return state;
   }
