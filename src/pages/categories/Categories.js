@@ -65,6 +65,7 @@ const Categories = () => {
       justify="center"
       style={{
         padding: 12,
+        backgroundColor: "#79a8d5",
       }}
     >
       {/* This is profile */}
@@ -111,13 +112,22 @@ const Categories = () => {
               <Col
                 span={24}
                 style={{
-                  padding: "0px 6px",
-                  borderBottom: "1px solid #E9E9E9",
+                  padding: "5px 6px",
+                  borderRadius: 5,
+                  backgroundColor: "#D4E9F2",
+                  border: "1px solid #E9E9E9",
                 }}
                 onMouseEnter={() => setMouseHoveredCategory(category.name)}
                 onMouseLeave={() => setMouseHoveredCategory(null)}
               >
-                <Text key={index}>
+                <Text
+                  key={index}
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 500,
+                    cursor: "pointer",
+                  }}
+                >
                   {index + 1}. {category.name}
                 </Text>
 
@@ -126,7 +136,7 @@ const Categories = () => {
                   <DeleteOutlined
                     style={{
                       float: "right",
-                      color: "#faad14",
+                      color: "red",
                       marginTop: 3,
                     }}
                     onClick={() => {

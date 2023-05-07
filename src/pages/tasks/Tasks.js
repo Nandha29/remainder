@@ -1,5 +1,5 @@
 import React, { useState, useReducer } from "react";
-import { Input, List, Row, Col, Divider, Typography } from "antd";
+import { Input, List, Row, Col, Divider, Typography, Checkbox } from "antd";
 import { CheckOutlined } from "@ant-design/icons";
 import { initialState } from "../../context/globalContext";
 import { reducerFunction } from "../../reducer/reducer";
@@ -7,7 +7,7 @@ import { ACTION_TYPES } from "../../reducer/reducerActionTypes";
 import { generateRandomId } from "../../utils/idGenerator";
 import InfoPanel from "./InfoPanel";
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 const Tasks = () => {
   const [state, dispatch] = useReducer(reducerFunction, initialState);
@@ -37,6 +37,7 @@ const Tasks = () => {
       style={{
         overflow: "hidden",
         padding: "1.5rem",
+        backgroundColor: "#3ab7ff",
       }}
     >
       <Title level={4}>Tasks</Title>
@@ -47,20 +48,68 @@ const Tasks = () => {
           }}
           dataSource={tasks}
           renderItem={(task, index) => (
-            <List.Item
+            // <List.Item
+            //   key={index}
+            //   style={{
+            //     cursor: "pointer",
+            //     // borderBottom: "1px solid #f0f0f0",
+            //     padding: "12px 10px",
+            //   }}
+            // >
+            <Row
               key={index}
               style={{
-                cursor: "pointer",
-              }}
-              onClick={() => {
-                setInfoPanelVisibility(true);
-                // dispatch({
-                //   type: ACTION_TYPES.OPEN_INFO_PANEL,
-                // });
+                backgroundColor: "#fff",
+                borderRadius: "5px",
+                padding: "8px 16px",
+                width: "100%",
+                marginBottom: "8px",
+                marginTop: "5px",
               }}
             >
-              {task.name}
-            </List.Item>
+              <Col span={1}>
+                <Checkbox
+                  style={{
+                    color: task.completed ? "green" : "gray",
+                  }}
+                  // style={{
+                  //   color: task.completed ? "green" : "gray",
+                  // }}
+                  // onClick={() => {
+                  //   dispatch({
+                  //     type: ACTION_TYPES.TOGGLE_TASK,
+                  //     payload: {
+                  //       taskId: task.id,
+                  //     },
+                  //   });
+                  // }}
+                />
+              </Col>
+              <Col
+                span={22}
+                onClick={() => {
+                  setInfoPanelVisibility(true);
+                  // dispatch({
+                  //   type: ACTION_TYPES.OPEN_INFO_PANEL,
+                  // });
+                }}
+                style={{
+                  cursor: "pointer",
+                }}
+              >
+                <Text
+                  style={{
+                    textDecoration: task.completed ? "line-through" : "none",
+                    fontSize: 14,
+                    fontWeight: 500,
+                    // marginLeft: "2rem",
+                  }}
+                >
+                  {task.name}
+                </Text>
+              </Col>
+            </Row>
+            // </List.Item>
           )}
         />
       </Col>

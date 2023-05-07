@@ -79,6 +79,24 @@ export const reducerFunction = (state, action) => {
         reminderDuration: action.payload.reminderDuration,
       };
 
+    case ACTION_TYPES.TOGGLE_TASK:
+      const taskToToggle = action.payload.task;
+      const updatedTasksAfterToggle = state.tasks.map((task) => {
+        if (task.id === taskToToggle.id) {
+          return {
+            ...task,
+            completed: !task.completed,
+          };
+        }
+        return task;
+      });
+      const updatedStateAfterToggle = {
+        ...state,
+        tasks: updatedTasksAfterToggle,
+      };
+      setLocalStorage(updatedStateAfterToggle);
+      return updatedStateAfterToggle;
+
     default:
       return state;
   }

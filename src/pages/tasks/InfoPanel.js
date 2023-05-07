@@ -25,6 +25,7 @@ const InfoPanel = ({ infoPanelVisibility, setInfoPanelVisibility }) => {
         });
       }}
     >
+      <Menu.Item key="5 mins">5 mins</Menu.Item>
       <Menu.Item key="15 mins">15 mins</Menu.Item>
       <Menu.Item key="30 mins">30 mins</Menu.Item>
       <Menu.Item key="1 hour">1 hour</Menu.Item>
@@ -61,6 +62,8 @@ const InfoPanel = ({ infoPanelVisibility, setInfoPanelVisibility }) => {
 
   const getDurationInMilliseconds = () => {
     switch (reminderDuration) {
+      case "5 mins":
+        return 5 * 60 * 1000;
       case "15 mins":
         return 15 * 60 * 1000;
       case "30 mins":
